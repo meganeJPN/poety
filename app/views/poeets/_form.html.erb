@@ -1,0 +1,19 @@
+<%= form_with(model: @poeet,local: true)  do |form| %>
+  <% if @poeet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @poeet.errors.count %>件のエラーがあります。</h2>
+   
+      <ul>
+        <% @poeet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="poeet_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
+<%= link_to "ポイート一覧に戻る", poeets_path %>

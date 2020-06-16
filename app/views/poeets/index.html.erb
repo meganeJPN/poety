@@ -1,8 +1,11 @@
 <h1>Poeet一覧</h1>
+<p><%= notice %></p>
 <table>
   <% @poeets.each do |poeet| %>
     <tr>
       <td><%= poeet.content %></td>
+      <td><%= link_to "編集",edit_poeet_path(poeet.id) , data: {confirm: '本当に編集していいですか？'} %></td>
+      <td><%= link_to "削除",poeet_path(poeet.id),method: :delete,data: {confirm: '本当に削除していいですか？'} %></td>
     </tr>
   <% end %>
 </table>
