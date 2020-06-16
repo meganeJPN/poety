@@ -1,0 +1,2 @@
+class Poeet < ApplicationRecord
+end
