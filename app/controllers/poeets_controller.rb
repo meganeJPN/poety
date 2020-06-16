@@ -9,8 +9,12 @@ class PoeetsController < ApplicationController
 
   def create
     # Poeet.create(content: params[:poeet][:content])
-    Poeet.create(poeet_params)
-    redirect_to poeets_path
+    @poeet = Poeet.new(poeet_params)
+    if @poeet.save
+      redirect_to poeets_path,notice: "ポイートしました"
+    else
+      render :new
+    end
   end
 
   private
