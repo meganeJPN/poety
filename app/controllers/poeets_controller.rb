@@ -11,12 +11,17 @@ class PoeetsController < ApplicationController
   def create
     # Poeet.create(content: params[:poeet][:content])
     @poeet = Poeet.new(poeet_params)
-    if @poeet.save
-      redirect_to poeets_path,notice: "ポイートしました"
-    else
+    if params[:back]
       render :new
+    else
+      if @poeet.save
+        redirect_to poeets_path,notice: "ポイートしました"
+      else
+        render :new
+      end
     end
   end
+
   def edit
   end
 
@@ -31,6 +36,11 @@ class PoeetsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def confirm
+    @poeet = Poeet.new(poeet_params)
+    render :new if @poeet.invalid?
   end
 
   private
