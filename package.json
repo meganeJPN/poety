@@ -1,6 +1,9 @@
 {
   "name": "poety",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "4",
+    "jquery": "^3.5.1"
+  },
   "version": "0.0.0"
 }
