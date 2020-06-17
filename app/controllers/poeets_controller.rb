@@ -7,7 +7,7 @@ class PoeetsController < ApplicationController
   def new
     @poeet = Poeet.new
     respond_to do |format| 
-      format.html{ redirect_to @poeet, notice: 'ポイートしました' }
+      # format.html{ redirect_to @poeet, notice: 'ポイートしました' }
       format.js {} 
     end
   end
@@ -16,16 +16,21 @@ class PoeetsController < ApplicationController
     # Poeet.create(content: params[:poeet][:content])
     @poeet = Poeet.new(poeet_params)
     respond_to do |format|
+      if params[:back]
+        # format.html { render :new}
+        format.js {render :new} 
+      else
       if @poeet.save
-        format.html {redirect_to @poeet, notice: 'ポイートしました'}
-        format.json { render :show, status: :created, location: @poeet }
-        format.js { @status = "success"}
+        format.html {redirect_to poeets_path, notice: 'ポイートしました'}
+        format.json {redirect_to poeets_path, status: :created}
+        format.js { redirect_to poeets_path}
       else
         format.html { render :new }
         format.json { render json: @poeet.errors, status: :unprocessable_entity }
         format.js { @status = "fail" }
       end
     end
+  end
     # if params[:back]
     #   render :new
     # else
@@ -53,9 +58,26 @@ class PoeetsController < ApplicationController
     end
   end
 
+  # def confirm
+  #   @poeet = Poeet.new(poeet_params)
+  #   render :new if @poeet.invalid?
+  # end
+
   def confirm
     @poeet = Poeet.new(poeet_params)
-    render :new if @poeet.invalid?
+    respond_to do |format| 
+      if @poeet.invalid?
+        format.html { render :new }
+        format.json { render json: @poeet.errors, status: :unprocessable_entity }
+        format.js { @status = "fail" }
+      else
+        format.html {redirect_to poeets_path, notice: 'ポイートしました'}
+        format.json { render :index, status: :created, location: @poeet }
+        format.js { @status = "success"}
+      end
+      format.html{ redirect_to @poeet, notice: 'ポイートしました' }
+      format.js {} 
+    end
   end
 
   private

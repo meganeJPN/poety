@@ -1,7 +1,0 @@
-<h3>以下の内容で、ポイートする</h3>
-<%= form_with(model: @poeet,local: true) do |form| %>
-  <%= form.hidden_field :content %>
-  <p><%= @poeet.content %></p>
-  <%= form.submit "ポイートする" %>
-  <%= form.submit "戻る",name: 'back' %>
-<% end %>

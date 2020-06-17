@@ -1,5 +1,6 @@
 <% if @status == 'success' %>
-  $("tbody").append("<%= j(render("tr", poeet: @poeet)) %>");
+  
+  
 <% elsif @status == 'fail' %>
   alert('error!');
 <% end %>
