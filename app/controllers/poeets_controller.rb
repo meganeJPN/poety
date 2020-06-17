@@ -6,20 +6,35 @@ class PoeetsController < ApplicationController
 
   def new
     @poeet = Poeet.new
+    respond_to do |format| 
+      format.html{ redirect_to @poeet, notice: 'ポイートしました' }
+      format.js {} 
+    end
   end
 
   def create
     # Poeet.create(content: params[:poeet][:content])
     @poeet = Poeet.new(poeet_params)
-    if params[:back]
-      render :new
-    else
+    respond_to do |format|
       if @poeet.save
-        redirect_to poeets_path,notice: "ポイートしました"
+        format.html {redirect_to @poeet, notice: 'ポイートしました'}
+        format.json { render :show, status: :created, location: @poeet }
+        format.js { @status = "success"}
       else
-        render :new
+        format.html { render :new }
+        format.json { render json: @poeet.errors, status: :unprocessable_entity }
+        format.js { @status = "fail" }
       end
     end
+    # if params[:back]
+    #   render :new
+    # else
+    #   if @poeet.save
+    #     redirect_to poeets_path,notice: "ポイートしました"
+    #   else
+    #     render :new
+    #   end
+    # end
   end
 
   def edit
