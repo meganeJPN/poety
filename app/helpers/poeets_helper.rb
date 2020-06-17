@@ -3,7 +3,7 @@ module PoeetsHelper
     if action_name == 'new' || action_name == 'create'
       confirm_poeets_path
     elsif action_name == 'edit'
-      poeet_path
+      confirm_poeet_path
     end
   end
 end
