@@ -1,3 +1,81 @@
 // Place all the styles related to the poeets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* flexbox設定 */
+// .flex-container {
+//   display: block;
+//   position: relative;
+//   // justify-content: flex-end;
+// }
+body {
+  background-color: #b8cedb;
+}
+
+.poetry-section {
+  width: 80%;
+  /* 幅は親要素の80% */
+  max-width: 500px;
+  /* 幅は最大500pxまでしか広げない */
+  margin: 0 auto;
+  /* 左右をauto指定にして左右中央揃えに */
+}
+
+.poeet-box {
+  border-radius: 50px;
+  background: #b8cedb;
+  box-shadow: 20px 20px 60px #9cafba,
+    -20px -20px 60px #d4edfc;
+  // display: block;
+  // position: relative;
+  // // height: 200px;
+  // margin-top: 40px;
+  // margin-left: 20px;
+  // margin-right: 20px;
+
+  // padding: 0.5em 1em;
+  // // margin: 2em 0;
+  // color: #5d627b;
+  // background-color: rgb(218, 216, 206);
+  // // border-top: solid 5px #5d627b;
+  // box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  // // padding: 20px 20px 20px 20px;
+}
+
+.poeet-body {
+  display: block;
+  position: relative;
+  // width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  // padding: 20px 20px 20px 20px;
+}
+
+.poeet-content {
+  // position: absolute;
+  // right: 0;
+  text-align: center;
+}
+
+.poeet-text {
+  -webkit-writing-mode: vertical-rl;
+  -moz-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  -ms-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  display: inline-block;
+  font-family: 'Noto Serif JP', serif;
+  text-align: left;
+  height: 200px;
+  word-break: break-all;
+}
+
+.poeet-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.poeet-edit {
+  margin-right: 10px;
+}

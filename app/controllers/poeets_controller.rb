@@ -1,7 +1,7 @@
 class PoeetsController < ApplicationController
   before_action :set_poeet, only: [:edit, :update,:destroy]
   def index
-    @poeets = Poeet.all
+    @poeets = Poeet.all.order(id: :desc)
   end
 
   def new
