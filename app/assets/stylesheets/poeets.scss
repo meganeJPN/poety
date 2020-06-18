@@ -8,7 +8,45 @@
 //   // justify-content: flex-end;
 // }
 body {
-  background-color: #b8cedb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #efefef;
+}
+
+.poeet-btn {
+  padding: 1.5em 5em;
+  background: #efefef;
+  border: none;
+  border-radius: .5rem;
+  color: #444;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .2rem;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, .7),
+    -6px -6px 10px rgba(255, 255, 255, .5),
+    6px 6px 8px rgba(255, 255, 255, .075),
+    6px 6px 10px rgba(0, 0, 0, .15);
+}
+
+.poeet-btn:hover {
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
+    -2px -2px 4px rgba(255, 255, 255, .4),
+    2px 2px 2px rgba(255, 255, 255, .05),
+    2px 2px 4px rgba(0, 0, 0, .1);
+}
+
+.poeet-btn:active {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+    inset -2px -2px 4px rgba(255, 255, 255, .5),
+    inset 2px 2px 2px rgba(255, 255, 255, .075),
+    inset 2px 2px 4px rgba(0, 0, 0, .15);
 }
 
 .poetry-section {
@@ -21,16 +59,16 @@ body {
 }
 
 .poeet-box {
-  border-radius: 50px;
-  background: #b8cedb;
-  box-shadow: 20px 20px 60px #9cafba,
-    -20px -20px 60px #d4edfc;
-  // display: block;
-  // position: relative;
-  // // height: 200px;
-  // margin-top: 40px;
-  // margin-left: 20px;
-  // margin-right: 20px;
+  border-radius: 27px;
+  background: #efefef;
+  box-shadow: 20px 20px 60px #cbcbcb,
+    -20px -20px 60px #ffffff;
+  display: block;
+  position: relative;
+  // height: 200px;
+  margin-top: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
 
   // padding: 0.5em 1em;
   // // margin: 2em 0;
@@ -38,7 +76,7 @@ body {
   // background-color: rgb(218, 216, 206);
   // // border-top: solid 5px #5d627b;
   // box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-  // // padding: 20px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
 }
 
 .poeet-body {
@@ -78,4 +116,29 @@ body {
 
 .poeet-edit {
   margin-right: 10px;
+}
+
+.poeet-dialog {
+  border-radius: 27px;
+  background: #efefef;
+  box-shadow: 20px 20px 60px #cbcbcb,
+    -20px -20px 60px #ffffff;
+
+
+}
+
+.modal-title {
+  color: #444;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .2rem;
+}
+
+.modal-backdrop {
+  background-color: #efefef;
+  // background-color: #428bca;
+}
+
+.modal-content {
+  border: none;
 }

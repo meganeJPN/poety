@@ -1,5 +1,5 @@
-<div class="modal-dialog" role="document">
-  <div class="modal-content" >
+<div class="modal-dialog " role="document">
+  <div class=" modal-content poeet-dialog" >
     <%= form_with(model: @poeet,remote: true , url: choose_new_or_edit,method: confirm_form_method,)  do |form| %>
     <div class="modal-header">
     <% if @poeet.id? %>
@@ -28,8 +28,8 @@
       </div>
     </div>
     <div class="modal-footer actions">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-      <%= form.submit('確認',class: 'btn btn-primary ') %>
+      <button type="button" class="poeet-btn" data-dismiss="modal">閉じる</button>
+      <%= form.submit('確認',class: 'poeet-btn') %>
     </div>
     <% end %>
   </div>

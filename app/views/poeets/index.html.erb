@@ -3,7 +3,7 @@
 <section class="poetry-section">
   <h1>Poeet一覧</h1>
   <p><%= notice %></p>
-  <%= link_to 'ポイートする', new_poeet_path , remote: true, class: "btn btn-lg btn-primary" %>
+  <%= link_to 'ポイートする', new_poeet_path , remote: true, class: "poeet-btn" %>
 <div class="modal fade" id="poeet-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
   <div>
    <% @poeets.each do |poeet| %>
@@ -15,10 +15,10 @@
       </div>
       <div class="poeet-footer">
         <div class="poeet-edit">
-          <%= link_to "編集",edit_poeet_path(poeet.id) ,remote: true,class: "btn btn-lg btn-primary" %>
+          <%= link_to "編集",edit_poeet_path(poeet.id) ,remote: true,class: "poeet-btn" %>
         </div>
         <div class = "poeet-delete">
-          <%= link_to "削除",poeet_path(poeet.id),method: :delete,data: {confirm: '本当に削除していいですか？'},remote: true,class: "btn btn-lg btn-primary" %>
+          <%= link_to "削除",poeet_path(poeet.id),method: :delete,data: {confirm: '本当に削除していいですか？'},remote: true,class: "poeet-btn" %>
         </div>
       </div>
     </div>
