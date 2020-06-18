@@ -1,10 +1,19 @@
 <div class="modal-dialog" role="document">
-  <div class="modal-content">
+  <div class="modal-content" >
     <%= form_with(model: @poeet,remote: true , url: choose_new_or_edit,method: confirm_form_method,)  do |form| %>
-      <% if @poeet.errors.any? %>
+    <div class="modal-header">
+    <% if @poeet.id? %>
+      <h5 class="modal-title" id="exampleModalLabel">ポイート編集</h5>
+    <% else %>
+      <h5 class="modal-title" id="exampleModalLabel">新規ポイート</h5>
+    <% end %>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+     <% if @poeet.errors.any? %>
         <div id="error_explanation">
           <h2><%= @poeet.errors.count %>件のエラーがあります。</h2>
-   
           <ul>
             <% @poeet.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -12,12 +21,6 @@
           </ul>
         </div>
       <% end %>
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">新規ポイート</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
     <div class="modal-body">
     <%# <div class="poeet_content"> %>
       <div class="form-group field">
@@ -25,11 +28,10 @@
       </div>
     </div>
     <div class="modal-footer actions">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <%= form.submit %>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+      <%= form.submit('確認',class: 'btn btn-primary ') %>
     </div>
     <% end %>
   </div>
 </div>
-
-<%# <%= link_to "ポイート一覧に戻る", poeets_path %> %>
+</div>

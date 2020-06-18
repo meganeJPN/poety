@@ -4,7 +4,11 @@
  
     <%= form_with(model: @poeet, url:confirm_new_or_edit, method: confirm_form_method, remote: true) do |form| %>
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">ポイート確認</h5>
+      <% if @poeet.id? %>
+        <h5 class="modal-title" id="exampleModalLabel">ポイート確認 修正</h5>
+      <% else %>
+        <h5 class="modal-title" id="exampleModalLabel">ポイート確認 新規</h5>
+      <% end %>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -15,8 +19,8 @@
         <p><%= @poeet.content %></p>
       </div>
       <div class="modal-footer actions">
-        <%= form.submit "ポイートする" %>
-        <%= form.submit "戻る",name: 'back' %>
+        <%= form.submit('戻る',class: 'btn btn-secondary',name: 'back')%>
+          <%= form.submit('ポイート',class: 'btn btn-primary') %>
       </div>
     <% end %>
   </div>
