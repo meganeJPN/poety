@@ -9,11 +9,26 @@
 // }
 body {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
   min-height: 100vh;
-  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
   background: #efefef;
+}
+
+h1,
+h5 {
+  margin-bottom: 40px;
+  font-family: 'Noto Serif JP', serif;
+  color: #444;
+  font-weight: 700;
+  letter-spacing: .2rem;
+}
+
+section {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .poeet-btn {
@@ -33,6 +48,7 @@ body {
     -6px -6px 10px rgba(255, 255, 255, .5),
     6px 6px 8px rgba(255, 255, 255, .075),
     6px 6px 10px rgba(0, 0, 0, .15);
+  font-family: 'Noto Serif JP', serif;
 }
 
 .poeet-btn:hover {
@@ -104,6 +120,9 @@ body {
   writing-mode: vertical-rl;
   display: inline-block;
   font-family: 'Noto Serif JP', serif;
+  color: #444;
+  font-weight: 700;
+  letter-spacing: .2rem;
   text-align: left;
   height: 200px;
   word-break: break-all;
@@ -112,6 +131,8 @@ body {
 .poeet-footer {
   display: flex;
   justify-content: flex-end;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .poeet-edit {
@@ -141,4 +162,37 @@ body {
 
 .modal-content {
   border: none;
+}
+
+.poeet-notice {
+  height: 30px;
+  margin-bottom: 40px;
+}
+
+.flash {
+  animation-name: noticeFade;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+
+}
+
+@keyframes noticeFade {
+  /*animetion-nameで設定した値を書く*/
+
+  0% {
+    opacity: 1
+  }
+
+  /*アニメーション開始時は不透明度0%*/
+
+  100% {
+    opacity: 0
+  }
+
+  /*アニメーション終了時は不透明度100%*/
+
 }
