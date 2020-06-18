@@ -2,7 +2,7 @@
   <div class="modal-content">
     <%# <h3>以下の内容で、ポイートする</h3> %>
  
-    <%= form_with(model: @poeet,remote: true) do |form| %>
+    <%= form_with(model: @poeet, url:confirm_new_or_edit, method: confirm_form_method, remote: true) do |form| %>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">ポイート確認</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

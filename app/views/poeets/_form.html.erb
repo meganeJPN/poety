@@ -1,6 +1,6 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
-    <%= form_with(model: @poeet,remote: true , url: choose_new_or_edit)  do |form| %>
+    <%= form_with(model: @poeet,remote: true , url: choose_new_or_edit,method: confirm_form_method,)  do |form| %>
       <% if @poeet.errors.any? %>
         <div id="error_explanation">
           <h2><%= @poeet.errors.count %>件のエラーがあります。</h2>
