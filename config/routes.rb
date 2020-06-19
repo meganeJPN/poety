@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :poeets do
+  root "poeets#index"
+  resources :poeets, only: [:index, :new, :create, :edit, :update,:destroy]  do
     collection do
       post :confirm
-      patch :confirm
     end
     member do
       patch :confirm
