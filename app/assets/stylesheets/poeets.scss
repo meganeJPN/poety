@@ -226,6 +226,10 @@ footer {
 }
 
 .flash {
+  font-family: 'Noto Serif JP', serif;
+  color: #444;
+  font-weight: 700;
+  letter-spacing: .5rem;
   animation-name: noticeFade;
   animation-duration: 3s;
   animation-timing-function: linear;
