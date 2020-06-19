@@ -24,10 +24,10 @@
     <div class="modal-body">
     <%# <div class="poeet_content"> %>
       <div class="form-group field">
-        <%= form.text_field :content %>
+        <%= form.text_area :content,class: "poeet-text-area" %>
       </div>
     </div>
-    <div class="modal-footer actions">
+    <div class="modal-footer actions poeet-footer-confirm">
       <button type="button" class="poeet-btn" data-dismiss="modal">閉じる</button>
       <%= form.submit('確認',class: 'poeet-btn') %>
     </div>
