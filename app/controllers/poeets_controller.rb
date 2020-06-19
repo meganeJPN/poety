@@ -13,22 +13,16 @@ class PoeetsController < ApplicationController
   end
 
   def create
-    # Poeet.create(content: params[:poeet][:content])
     @poeet = Poeet.new(poeet_params)
     respond_to do |format|
       if params[:back]
-        # format.html { render :new}
         format.js {render :new} 
       else
         if @poeet.save
-          format.html {redirect_to poeets_path, notice: 'ポイートしました'}
-          format.json {redirect_to poeets_path, status: :created}
-          # format.js { @status = "success" }
-          format.js {redirect_to poeets_path}
+          format.js {redirect_to poeets_path,notice: 'ポイートしました'}
         else
           format.html { render :new }
           format.json { render json: @poeet.errors, status: :unprocessable_entity }
-          # format.js { @status = "fail" }
           format.js{ render :new}
         end
       end
@@ -45,8 +39,6 @@ class PoeetsController < ApplicationController
 
   def update
     if params[:back]
-      # format.html { render :edit }
-      # format.js {render :edit}
       render :edit
     else
       if @poeet.update(poeet_params)
@@ -55,37 +47,20 @@ class PoeetsController < ApplicationController
         render :edit
       end
     end
-    
   end
-
-  # def confirm
-  #   @poeet = Poeet.new(poeet_params)
-  #   render :new if @poeet.invalid?
-  # end
 
   def confirm
     @poeet = Poeet.new(poeet_params)
-    logger.debug("id代入前")
-    logger.debug(@poeet.id)
-
     @poeet.id = params[:id]
-
-    logger.debug("id代入後")
-    logger.debug(@poeet.id)
-    # @poeet = Poeet.find_or_initialize_by(id: params[:id])
     logger.debug("action_name")
     logger.debug(action_name)
     respond_to do |format| 
       if @poeet.invalid?
         if @poeet.id?
           format.html { render :edit }
-          # format.json { render json: @poeet.errors, status: :unprocessable_entity }
-          # format.js { @status = "fail" }
           format.js{ render :edit}
         else
           format.html { render :new }
-          # format.json { render json: @poeet.errors, status: :unprocessable_entity }
-          # format.js { @status = "fail" }
           format.js{ render :new}
         end
       else
